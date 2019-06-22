@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext, useEffect } from 'react';
 // import { connect } from 'react-redux';
 
 import ShopContext from '../context/shop-context';
@@ -6,14 +6,14 @@ import MainNavigation from '../components/MainNavigation';
 // import { removeProductFromCart } from '../store/actions';
 import './Cart.css';
 
-class CartPage extends Component {
-  static contextType = ShopContext;
+const CartPage = props => {
 
-  componentDidMount() {
-    console.log(this.context);
-  }
+  const context = useContext(ShopContext); 
 
-  render() {
+  useEffect(() => {
+    console.log(context);
+  });
+  
     return (
       <React.Fragment>
         <MainNavigation
@@ -46,7 +46,7 @@ class CartPage extends Component {
         </main>
       </React.Fragment>
     );
-  }
+  
 }
 
 // const mapStateToProps = state => {
